@@ -26,11 +26,13 @@ class HandlerConection(BaseHTTPRequestHandler):
 		self.wfile.write("GET request for {}".format(self.path).encode('utf-8'))
 
 	def do_POST(self):
-		content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-		post_data = self.rfile.read(content_length) # <--- Gets the data itself
+		content_length = int(self.headers['Content-Length'])
+		post_data = self.rfile.read(content_length)
 		print("POST request,\nPath: {}\nHeaders:{}\nBody:\n%s\n",
 		str(self.path), str(self.headers), post_data.decode('utf-8'))
-
+		file = open('filename', 'w')
+		file.write(post_data.decode('utf-8'))
+		file.close()
 		self._set_response()
 		self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
 

@@ -9,6 +9,7 @@ import constants
 import os
 import http.client
 import requests
+from requests_toolbelt import MultipartEncoder
 #Variables for connection
 host = constants.SERVER_ADDRESS
 port = constants.PORT
@@ -29,13 +30,12 @@ def runClient():
             bucketName = input("Enter the name of the bucket to delete >> ")
             informationToSend = command+"/"+bucketName
         elif command == constants.UPLOAD_FILE:
-            filePath = input("Enter the path where the file is >> ")
-            fileName = input("Enter the name of the file to upload >> ")
-            bucketName = input("Enter the name of the bucket where the file will be uploaded >> ")
-            with open(filePath, "rb") as a_file:
-                file_dict = {fileName: a_file}
-                response = requests.post("http://localhost:8050", files=file_dict)
-                print(response)
+            m = MultipartEncoder( fields={'field0': 'value', 'field1': 'value','field2': ('filename', open('test.txt', 'rb'), 'text/plain')})
+            connection = http.client.HTTPConnection(constants.SERVER_ADDRESS, constants.PORT)
+            connection.request("POST", '/UPLOAD_FILE', m, headers={'Content-Type': m.content_type, 'Content-Length': m.len})
+            response = connection.getresponse()
+            print(response)
+            connection.close()
         elif command == constants.LIST_FILE:
             bucketName = input("Enter the bucket name to list the files >> ")
             informationToSend = command+"/"+bucketName
