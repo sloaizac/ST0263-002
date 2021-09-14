@@ -1,8 +1,9 @@
 
 import pika
 import sys
+import constants
 
-dirIP = "54.89.9.125"
+dirIP = constants.SERVER_ADDRESS
 portID = 5672
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(dirIP, portID, "/", pika.PlainCredentials("user","password")))
