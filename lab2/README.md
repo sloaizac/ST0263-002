@@ -1,4 +1,4 @@
-## **LAB 1:** Protocolo de comunicación cliente - servidor mediante programación en sockets
+## **LAB 2:** Protocolo de comunicación cliente - servidor mediante el protocolo http
 
 **Descripción:**
 Esta aplicación que utiliza el protocolo http para establecer una comunicación entre un cliente y un servidor funciona como un sistema de buckets en el cual desde el cliente se permiten realizar las acciones basicas para el almacenamiento de archivos por medio de comandos
