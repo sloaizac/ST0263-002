@@ -23,12 +23,10 @@ Una vez creada la carpeta, usaremos el comando para copiar los datos desde la ca
 
     user@master$ hdfs dfs -copyFromLocal /datasets/* /user/<username>/datasets/
     
-    
-    
-    ![image](https://user-images.githubusercontent.com/35736499/143804298-9832c70a-c93e-415c-b41f-65503d16d119.png)
 
 
 
+![image](https://user-images.githubusercontent.com/35736499/143804349-a4d9c995-6693-405c-b044-f6d1d34e846b.png)
 
 
    
